@@ -12,15 +12,15 @@ You may obtain a copy of the License at
 
 require("luci.sys")
 
-m = Map("autoreboot", translate("定时重启"), translate("配置定时重启。"))
+m = Map("autoreboot", translate("Automatic reboot"), translate("Configure automatic reboot."))
 
 s = m:section(TypedSection, "login", "")
 s.addremove = false
 s.anonymous = true
 
-enable = s:option(Flag, "enable", translate("启用"))
-pass = s:option(Value, "minute", translate("分"))
-hour = s:option(Value, "hour", translate("时"))
+enable = s:option(Flag, "enable", translate("Enable"))
+pass = s:option(Value, "minute", translate("minute(s)"))
+hour = s:option(Value, "hour", translate("hour(s)"))
 
 local apply = luci.http.formvalue("cbi.apply")
 if apply then
